@@ -475,157 +475,168 @@
 
 * **Evitar carácteres de control de expresiones regulares.**
 
-  eslint: [`no-control-regex`](http://eslint.org/docs/rules/no-control-regex)
+    eslint: [`no-control-regex`](http://eslint.org/docs/rules/no-control-regex)
 
-  ```js
-  var pattern = /\x1f/    // ✗ avoid
-  var pattern = /\x20/    // ✓ ok
-  ```
+    ```js
+    var pattern = /\x1f/    // ✗ avoid
+    var pattern = /\x20/    // ✓ ok
+    ```
 
 * **Evitar sentencias `debugger`.**
 
-  eslint: [`no-debugger`](http://eslint.org/docs/rules/no-debugger)
+    eslint: [`no-debugger`](http://eslint.org/docs/rules/no-debugger)
 
-  ```js
-  function sum (a, b) {
-    debugger      // ✗ avoid
-    return a + b
-  }
-  ```
+    ```js
+    function sum (a, b) 
+    {
+        debugger      // ✗ avoid
+        return a + b
+    }
+    ```
 * **Evitar operador delete en variables.**
 
-  eslint: [`no-delete-var`](http://eslint.org/docs/rules/no-delete-var)
-
-  ```js
-  var name
-  delete name     // ✗ avoid
-  ```
+    eslint: [`no-delete-var`](http://eslint.org/docs/rules/no-delete-var)
+    
+    ```js
+    var name
+    delete name     // ✗ avoid
+    ```
 
 * **Evitar argumentos duplicados en definicion de funciones.**
 
-  eslint: [`no-dupe-args`](http://eslint.org/docs/rules/no-dupe-args)
-
-  ```js
-  function sum (a, b, a) {  // ✗ avoid
+    eslint: [`no-dupe-args`](http://eslint.org/docs/rules/no-dupe-args)
+    
+    ```js
+    function sum (a, b, a) // ✗ avoid
+    {  
     // ...
-  }
-
-  function sum (a, b, c) {  // ✓ ok
+    }
+    
+    function sum (a, b, c) // ✓ ok
+    {
     // ...
-  }
-  ```
+    }
+    ```
 
 * **Evitar duplicados en miembros de clase.**
 
-  eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
-
-  ```js
-  class Dog {
-    bark () {}
-    bark () {}    // ✗ avoid
-  }
-  ```
+    eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
+    
+    ```js
+    class Dog 
+    {
+        bark () {}
+        bark () {}    // ✗ avoid
+    }
+    ```
 
 * **Evitar duplicado de claves en objetos literales.**
 
-  eslint: [`no-dupe-keys`](http://eslint.org/docs/rules/no-dupe-keys)
-
-  ```js
-  var user = {
-    name: 'Jane Doe',
-    name: 'John Doe'    // ✗ avoid
-  }
-  ```
+    eslint: [`no-dupe-keys`](http://eslint.org/docs/rules/no-dupe-keys)
+    
+    ```js
+    var user = {
+        name: 'Jane Doe',
+        name: 'John Doe'    // ✗ avoid
+    }
+    ```
 
 * **Evitar dublicados de etiqueta `case` en sentencias `switch`.**
 
-  eslint: [`no-duplicate-case`](http://eslint.org/docs/rules/no-duplicate-case)
-
-  ```js
-  switch (id) {
-    case 1:
-      // ...
-    case 1:     // ✗ avoid
-  }
-  ```
+    eslint: [`no-duplicate-case`](http://eslint.org/docs/rules/no-duplicate-case)
+    
+    ```js
+    switch (id) 
+    {
+        case 1:
+            // ...
+        case 1:     // ✗ avoid
+    }
+    ```
 
 * **Usar una unica sentencia `import` por modulo.**
 
-  eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
-
-  ```js
-  import { myFunc1 } from 'module'
-  import { myFunc2 } from 'module'          // ✗ avoid
-
-  import { myFunc1, myFunc2 } from 'module' // ✓ ok
-  ```
+    eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
+    
+    ```js
+    import { myFunc1 } from 'module'
+    import { myFunc2 } from 'module'          // ✗ avoid
+    
+    import { myFunc1, myFunc2 } from 'module' // ✓ ok
+    ```
 
 * **Evitar classes de carácteres vacia en expresiones regulares.**
 
-  eslint: [`no-empty-character-class`](http://eslint.org/docs/rules/no-empty-character-class)
-
-  ```js
-  const myRegex = /^abc[]/      // ✗ avoid
-  const myRegex = /^abc[a-z]/   // ✓ ok
-  ```
+    eslint: [`no-empty-character-class`](http://eslint.org/docs/rules/no-empty-character-class)
+    
+    ```js
+    const myRegex = /^abc[]/      // ✗ avoid
+    const myRegex = /^abc[a-z]/   // ✓ ok
+    ```
 
 * **Evitar pratones de destructuración vacios.**
 
-  eslint: [`no-empty-pattern`](http://eslint.org/docs/rules/no-empty-pattern)
-
-  ```js
-  const { a: {} } = foo         // ✗ avoid
-  const { a: { b } } = foo      // ✓ ok
-  ```
+    eslint: [`no-empty-pattern`](http://eslint.org/docs/rules/no-empty-pattern)
+    
+    ```js
+    const { a: {} } = foo         // ✗ avoid
+    const { a: { b } } = foo      // ✓ ok
+    ```
 
 * **Evitar uso de `eval()`.**
 
-  eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
-
-  ```js
-  eval( "var result = user." + propName ) // ✗ avoid
-  var result = user[propName]             // ✓ ok
-  ```
+    eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
+    
+    ```js
+    eval( "var result = user." + propName ) // ✗ avoid
+    var result = user[propName]             // ✓ ok
+    ```
 
 * **Evitar reasignar excepciones en clausas `catch`.**
 
-  eslint: [`no-ex-assign`](http://eslint.org/docs/rules/no-ex-assign)
-
-  ```js
-  try {
+    eslint: [`no-ex-assign`](http://eslint.org/docs/rules/no-ex-assign)
+    
+    ```js
+    try 
+    {
+        // ...
+    } 
+    catch (e) 
+    {
+        e = 'new value';            // ✗ avoid
+    }
+    
+    try 
+    {
     // ...
-  } catch (e) {
-    e = 'new value'             // ✗ avoid
-  }
-
-  try {
-    // ...
-  } catch (e) {
-    const newVal = 'new value'  // ✓ ok
-  }
-  ```
+    } 
+    catch (e) 
+    {
+    const newVal = 'new value';  // ✓ ok
+    }
+    ```
 
 * **Evitar extender objetos nativos**
 
-  eslint: [`no-extend-native`](http://eslint.org/docs/rules/no-extend-native)
-
-  ```js
-  Object.prototype.age = 21     // ✗ avoid
-  ```
+    eslint: [`no-extend-native`](http://eslint.org/docs/rules/no-extend-native)
+    
+    ```js
+    Object.prototype.age = 21     // ✗ avoid
+    ```
 
 * **Evitar uso innecesario de bind en funciones.**
 
-  eslint: [`no-extra-bind`](http://eslint.org/docs/rules/no-extra-bind)
-
-  ```js
-  const name = function () {
-    getName()
-  }.bind(user)    // ✗ avoid
-
-  const name = function () {
-    this.getName()
-  }.bind(user)    // ✓ ok
-  ```
+    eslint: [`no-extra-bind`](http://eslint.org/docs/rules/no-extra-bind)
+    
+    ```js
+    const name = function () {
+        getName()
+    }.bind(user)    // ✗ avoid
+    
+    const name = function () {
+        this.getName()
+    }.bind(user)    // ✓ ok
+    ```
 
 * **Evitar hacer cast a booleanos.**
 
