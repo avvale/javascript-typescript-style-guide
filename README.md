@@ -9,6 +9,26 @@
 
 ## Reglas
 
+* **Usar nombres en inglés** para clases, métodos, funciones y variables.
+
+    ```js
+    class Cliente     // ✗ evitar
+    {
+        getTelefono() // ✗ evitar 
+        { 
+            // ... 
+        }
+    }
+  
+    class Customer     // ✓ ok
+    {
+        getPhone()     // ✓ ok
+        { 
+            // ... 
+        }
+    }
+    ```
+
 * **Usar 4 espacios** como sangría.
 
     eslint: [`indent`](https://eslint.org/docs/rules/indent)
@@ -278,10 +298,10 @@
     eslint: [`camelcase`](https://eslint.org/docs/rules/camelcase)
     
     ```js
-    function my_function () { }    // ✗ avoid
+    function my_function () { }    // ✗ evitar
     function myFunction () { }     // ✓ ok
     
-    var my_var = 'hello';          // ✗ avoid
+    var my_var = 'hello';          // ✗ evitar
     var myVar = 'hello';           // ✓ ok
     ```
 
@@ -291,7 +311,7 @@
     
     ```js
     var obj = {
-        message: 'hello',   // ✗ avoid
+        message: 'hello',   // ✗ evitar
     }
     ```
 
@@ -302,7 +322,7 @@
     ```js
     var obj = {
         foo: 'foo'
-        ,bar: 'bar'   // ✗ avoid
+        ,bar: 'bar'   // ✗ evitar
     };
     
     var obj = {
@@ -317,7 +337,7 @@
 
     ```js
     console.
-        log('hello');  // ✗ avoid
+        log('hello');  // ✗ evitar
     
     console
         .log('hello'); // ✓ ok
@@ -332,7 +352,7 @@
     eslint: [`func-call-spacing`](https://eslint.org/docs/rules/func-call-spacing)
 
     ```js
-    console.log ('hello'); // ✗ avoid
+    console.log ('hello'); // ✗ evitar
     console.log('hello');  // ✓ ok
     ```
 
@@ -341,9 +361,9 @@
     eslint: [`key-spacing`](https://eslint.org/docs/rules/key-spacing)
 
     ```js
-    var obj = { 'key' : 'value' };    // ✗ avoid
-    var obj = { 'key' :'value' };     // ✗ avoid
-    var obj = { 'key':'value' };      // ✗ avoid
+    var obj = { 'key' : 'value' };    // ✗ evitar
+    var obj = { 'key' :'value' };     // ✗ evitar
+    var obj = { 'key':'value' };      // ✗ evitar
     var obj = { 'key': 'value' };     // ✓ ok
     ```
 
@@ -353,7 +373,7 @@
     
     ```js
     function animal () {}
-    var dog = new animal();   // ✗ avoid
+    var dog = new animal();   // ✗ evitar
     
     function Animal () {}
     var dog = new Animal();   // ✓ ok
@@ -365,7 +385,7 @@
     
     ```js
     function Animal () {}
-    var dog = new Animal;    // ✗ avoid
+    var dog = new Animal;    // ✗ evitar
     var dog = new Animal();  // ✓ ok
     ```
 
@@ -375,7 +395,7 @@
 
     ```js
     var person = {
-        set name (value) {    // ✗ avoid
+        set name (value) {    // ✗ evitar
             this._name = value;
         }
     }
@@ -399,7 +419,7 @@
     {
         constructor () 
         {
-            super();   // ✗ avoid
+            super();   // ✗ evitar
         }
     }
     
@@ -417,7 +437,7 @@
     eslint: [`no-array-constructor`](https://eslint.org/docs/rules/no-array-constructor)
     
     ```js
-    var nums = new Array(1, 2, 3);   // ✗ avoid
+    var nums = new Array(1, 2, 3);   // ✗ evitar
     var nums = [1, 2, 3];            // ✓ ok
     ```
 
@@ -430,7 +450,7 @@
     {
         if (n <= 0) return;
     
-        arguments.caller(n - 1);   // ✗ avoid
+        arguments.caller(n - 1);   // ✗ evitar
     }
     
     function foo (n) 
@@ -447,7 +467,7 @@
 
     ```js
     class Dog {}
-    Dog = 'Fido';    // ✗ avoid
+    Dog = 'Fido';    // ✗ evitar
     ```
 
 * **Evitar modifidicar variables declaracas usando `const`.**
@@ -456,7 +476,7 @@
     
     ```js
     const score = 100;
-    score = 125;       // ✗ avoid
+    score = 125;       // ✗ evitar
     ```
 
 * **Evitar usar expresiones constantes en condicionales (a excepcion de búcles).**
@@ -464,7 +484,7 @@
     eslint: [`no-constant-condition`](https://eslint.org/docs/rules/no-constant-condition)
     
     ```js
-    if (false) // ✗ avoid    
+    if (false) // ✗ evitar    
     {    
     // ...
     }
@@ -485,7 +505,7 @@
     eslint: [`no-control-regex`](https://eslint.org/docs/rules/no-control-regex)
 
     ```js
-    var pattern = /\x1f/;    // ✗ avoid
+    var pattern = /\x1f/;    // ✗ evitar
     var pattern = /\x20/;    // ✓ ok
     ```
 
@@ -496,7 +516,7 @@
     ```js
     function sum (a, b) 
     {
-        debugger;      // ✗ avoid
+        debugger;      // ✗ evitar
         return a + b;
     }
     ```
@@ -506,7 +526,7 @@
     
     ```js
     var name;
-    delete name;     // ✗ avoid
+    delete name;     // ✗ evitar
     ```
 
 * **Evitar argumentos duplicados en definicion de funciones.**
@@ -514,7 +534,7 @@
     eslint: [`no-dupe-args`](https://eslint.org/docs/rules/no-dupe-args)
     
     ```js
-    function sum (a, b, a) // ✗ avoid
+    function sum (a, b, a) // ✗ evitar
     {  
     // ...
     }
@@ -533,7 +553,7 @@
     class Dog 
     {
         bark () {}
-        bark () {}    // ✗ avoid
+        bark () {}    // ✗ evitar
     }
     ```
 
@@ -544,7 +564,7 @@
     ```js
     var user = {
         name: 'Jane Doe',
-        name: 'John Doe'    // ✗ avoid
+        name: 'John Doe'    // ✗ evitar
     }
     ```
 
@@ -557,7 +577,7 @@
     {
         case 1:
             // ...
-        case 1:     // ✗ avoid
+        case 1:     // ✗ evitar
     }
     ```
 
@@ -567,7 +587,7 @@
     
     ```js
     import { myFunc1 } from 'module';
-    import { myFunc2 } from 'module';          // ✗ avoid
+    import { myFunc2 } from 'module';          // ✗ evitar
     
     import { myFunc1, myFunc2 } from 'module' // ✓ ok
     ```
@@ -577,7 +597,7 @@
     eslint: [`no-empty-character-class`](https://eslint.org/docs/rules/no-empty-character-class)
     
     ```js
-    const myRegex = /^abc[]/;      // ✗ avoid
+    const myRegex = /^abc[]/;      // ✗ evitar
     const myRegex = /^abc[a-z]/;   // ✓ ok
     ```
 
@@ -586,7 +606,7 @@
     eslint: [`no-empty-pattern`](https://eslint.org/docs/rules/no-empty-pattern)
     
     ```js
-    const { a: {} } = foo;         // ✗ avoid
+    const { a: {} } = foo;         // ✗ evitar
     const { a: { b } } = foo;      // ✓ ok
     ```
 
@@ -595,7 +615,7 @@
     eslint: [`no-eval`](https://eslint.org/docs/rules/no-eval)
     
     ```js
-    eval( "var result = user." + propName ); // ✗ avoid
+    eval( "var result = user." + propName ); // ✗ evitar
     var result = user[propName];             // ✓ ok
     ```
 
@@ -610,7 +630,7 @@
     } 
     catch (e) 
     {
-        e = 'new value';            // ✗ avoid
+        e = 'new value';            // ✗ evitar
     }
     
     try 
@@ -628,7 +648,7 @@
     eslint: [`no-extend-native`](https://eslint.org/docs/rules/no-extend-native)
     
     ```js
-    Object.prototype.age = 21;     // ✗ avoid
+    Object.prototype.age = 21;     // ✗ evitar
     ```
 
 * **Evitar uso innecesario de bind en funciones.**
@@ -638,7 +658,7 @@
     ```js
     const name = function () {
         getName();
-    }.bind(user);    // ✗ avoid
+    }.bind(user);    // ✗ evitar
     
     const name = function () {
         this.getName();
@@ -651,7 +671,7 @@
 
     ```js
     const result = true;
-    if (!!result) // ✗ avoid 
+    if (!!result) // ✗ evitar 
     {
         // ...
     }
@@ -668,7 +688,7 @@
     eslint: [`no-extra-parens`](https://eslint.org/docs/rules/no-extra-parens)
 
     ```js
-    const myFunc = (function () { })   // ✗ avoid
+    const myFunc = (function () { })   // ✗ evitar
     const myFunc = function () { }     // ✓ ok
     ```
 
@@ -680,7 +700,7 @@
     switch (filter) 
     {
         case 1:
-            doSomething();    // ✗ avoid
+            doSomething();    // ✗ evitar
         case 2:
             doSomethingElse();
     }
@@ -700,7 +720,7 @@
     eslint: [`no-floating-decimal`](https://eslint.org/docs/rules/no-floating-decimal)
     
     ```js
-    const discount = .5;      // ✗ avoid
+    const discount = .5;      // ✗ evitar
     const discount = 0.5;     // ✓ ok
     ```
 
@@ -710,7 +730,7 @@
     
     ```js
     function myFunc () { }
-    myFunc = myOtherFunc;    // ✗ avoid
+    myFunc = myOtherFunc;    // ✗ evitar
     ```
 
 * **Evitar reasignación de variables globales de solo-lectura.**
@@ -718,7 +738,7 @@
     eslint: [`no-global-assign`](https://eslint.org/docs/rules/no-global-assign)
     
     ```js
-    window = {};     // ✗ avoid
+    window = {};     // ✗ evitar
     ```
 
 * **Evitar usar eval() implícito.**
@@ -726,7 +746,7 @@
     eslint: [`no-implied-eval`](https://eslint.org/docs/rules/no-implied-eval)
     
     ```js
-    setTimeout("alert('Hello world')");                   // ✗ avoid
+    setTimeout("alert('Hello world')");                   // ✗ evitar
     setTimeout(function () { window.alert('Hello world'); })     // ✓ ok
     ```
 
@@ -737,7 +757,7 @@
     ```js
     if (authenticated) 
     {
-        function setAuthUser () {}    // ✗ avoid
+        function setAuthUser () {}    // ✗ evitar
     }
     ```
 
@@ -746,7 +766,7 @@
     eslint: [`no-invalid-regexp`](https://eslint.org/docs/rules/no-invalid-regexp)
     
     ```js
-    RegExp('[a-z');    // ✗ avoid
+    RegExp('[a-z');    // ✗ evitar
     RegExp('[a-z]');   // ✓ ok
     ```
 
@@ -755,7 +775,7 @@
     eslint: [`no-irregular-whitespace`](https://eslint.org/docs/rules/no-irregular-whitespace)
     
     ```js
-    function myFunc () /*<NBSP>*/{}   // ✗ avoid
+    function myFunc () /*<NBSP>*/{}   // ✗ evitar
     ```
 
 * **Evitar uso de `__iterator__`.**
@@ -763,7 +783,7 @@
     eslint: [`no-iterator`](https://eslint.org/docs/rules/no-iterator)
     
     ```js
-    Foo.prototype.__iterator__ = function () {};   // ✗ avoid
+    Foo.prototype.__iterator__ = function () {};   // ✗ evitar
     ```
 
 * **Evitar etiquetas que comparten el nombre de una variable en scope.**
@@ -774,7 +794,7 @@
     var score = 100;
     function game () 
     {
-        score: while (true) // ✗ avoid
+        score: while (true) // ✗ evitar
         {      
             score -= 10;
             if (score > 0) continue score;
@@ -791,7 +811,7 @@
     label:
     while (true) 
     {
-        break label;     // ✗ avoid
+        break label;     // ✗ evitar
     }
     ```
 
@@ -802,7 +822,7 @@
     ```js
     function myFunc () 
     {
-        {                   // ✗ avoid
+        {                   // ✗ evitar
             myOtherFunc();
         }
     }
@@ -822,7 +842,7 @@
     eslint: [`no-multi-spaces`](https://eslint.org/docs/rules/no-multi-spaces)
     
     ```js
-    const id =    1234;    // ✗ avoid
+    const id =    1234;    // ✗ evitar
     const id = 1234;       // ✓ ok
     ```
 
@@ -832,7 +852,7 @@
     
     ```js
     const message = 'Hello \
-                   world';     // ✗ avoid
+                   world';     // ✗ evitar
     ```
 
 * **Evitar usar `new` sin asignar a el objecto a una variable**
@@ -840,7 +860,7 @@
     eslint: [`no-new`](https://eslint.org/docs/rules/no-new)
     
     ```js
-    new Character();                     // ✗ avoid
+    new Character();                     // ✗ evitar
     const character = new Character();   // ✓ ok
     ```
 
@@ -849,7 +869,7 @@
     eslint: [`no-new-func`](https://eslint.org/docs/rules/no-new-func)
     
     ```js
-    var sum = new Function('a', 'b', 'return a + b');    // ✗ avoid
+    var sum = new Function('a', 'b', 'return a + b');    // ✗ evitar
     ```
 
 * **Evitar uso de constructor `Object`**
@@ -857,7 +877,7 @@
     eslint: [`no-new-object`](https://eslint.org/docs/rules/no-new-object)
     
     ```js
-    let config = new Object();   // ✗ avoid
+    let config = new Object();   // ✗ evitar
     ```
 
 * **Evitar uso de `new require`.**
@@ -865,7 +885,7 @@
     eslint: [`no-new-require`](https://eslint.org/docs/rules/no-new-require)
     
     ```js
-    const myModule = new require('my-module');    // ✗ avoid
+    const myModule = new require('my-module');    // ✗ evitar
     ```
 
 * **Evitar uso de constructor `Symbol`.**
@@ -873,7 +893,7 @@
     eslint: [`no-new-symbol`](https://eslint.org/docs/rules/no-new-symbol)
     
     ```js
-    const foo = new Symbol('foo');   // ✗ avoid
+    const foo = new Symbol('foo');   // ✗ evitar
     ```
 
 * **Evitar envolturas de instancias primitivas.**
@@ -881,7 +901,7 @@
     eslint: [`no-new-wrappers`](https://eslint.org/docs/rules/no-new-wrappers)
     
     ```js
-    const message = new String('hello');   // ✗ avoid
+    const message = new String('hello');   // ✗ evitar
     ```
 
 * **Evitar llamar propiedades de objetos globles como funciones.**
@@ -889,7 +909,7 @@
     eslint: [`no-obj-calls`](https://eslint.org/docs/rules/no-obj-calls)
     
     ```js
-    const math = Math();   // ✗ avoid
+    const math = Math();   // ✗ evitar
     ```
 
 * **Evitar uso de octal literal.**
@@ -897,7 +917,7 @@
     eslint: [`no-octal`](https://eslint.org/docs/rules/no-octal)
     
     ```js
-    const num = 042;     // ✗ avoid
+    const num = 042;     // ✗ evitar
     const num = '042';   // ✓ ok
     ```
 
@@ -906,7 +926,7 @@
     eslint: [`no-octal-escape`](https://eslint.org/docs/rules/no-octal-escape)
     
     ```js
-    const copyright = 'Copyright \251';  // ✗ avoid
+    const copyright = 'Copyright \251';  // ✗ evitar
     ```
 
 * **Evitar concatenacion de cadena de texto para `__dirname` y `__filename`.**
@@ -914,7 +934,7 @@
     eslint: [`no-path-concat`](https://eslint.org/docs/rules/no-path-concat)
     
     ```js
-    const pathToFile = __dirname + '/app.js';            // ✗ avoid
+    const pathToFile = __dirname + '/app.js';            // ✗ evitar
     const pathToFile = path.join(__dirname, 'app.js');   // ✓ ok
     ```
 
@@ -923,7 +943,7 @@
     eslint: [`no-proto`](https://eslint.org/docs/rules/no-proto)
     
     ```js
-    const foo = obj.__proto__;               // ✗ avoid
+    const foo = obj.__proto__;               // ✗ evitar
     const foo = Object.getPrototypeOf(obj);  // ✓ ok
     ```
 
@@ -933,7 +953,7 @@
     
     ```js
     let name = 'John';
-    let name = 'Jane';     // ✗ avoid
+    let name = 'Jane';     // ✗ evitar
     
     let name = 'John';
     name = 'Jane';         // ✓ ok
@@ -944,7 +964,7 @@
     eslint: [`no-regex-spaces`](https://eslint.org/docs/rules/no-regex-spaces)
     
     ```js
-    const regexp = /test   value/;   // ✗ avoid
+    const regexp = /test   value/;   // ✗ evitar
     
     const regexp = /test {3}value/;  // ✓ ok
     const regexp = /test value/;     // ✓ ok
@@ -957,7 +977,7 @@
     ```js
     function sum (a, b) 
     {
-        return result = a + b;     // ✗ avoid
+        return result = a + b;     // ✗ evitar
     }
     
     function sum (a, b) 
@@ -971,7 +991,7 @@
     eslint: [`no-self-assign`](https://eslint.org/docs/rules/no-self-assign)
     
     ```js
-    name = name;   // ✗ avoid
+    name = name;   // ✗ evitar
     ```
 
 * **Evitar comparar una variable consigo mismo.**
@@ -979,7 +999,7 @@
     esint: [`no-self-compare`](https://eslint.org/docs/rules/no-self-compare)
     
     ```js
-    if (score === score) {}   // ✗ avoid
+    if (score === score) {}   // ✗ evitar
     ```
 
 * **Evitar uso de secuencia separado po comma.**
@@ -987,7 +1007,7 @@
     eslint: [`no-sequences`](https://eslint.org/docs/rules/no-sequences)
     
     ```js
-    if (doSomething(), !!test) {}   // ✗ avoid
+    if (doSomething(), !!test) {}   // ✗ evitar
     ```
 
 * **Nombres restringidos no deben ser cambiados (shadowed).**
@@ -995,7 +1015,7 @@
     eslint: [`no-shadow-restricted-names`](https://eslint.org/docs/rules/no-shadow-restricted-names)
     
     ```js
-    let undefined = 'value';     // ✗ avoid
+    let undefined = 'value';     // ✗ evitar
     ```
 
 * **Array dispersos no estan permitidos.**
@@ -1003,7 +1023,7 @@
     eslint: [`no-sparse-arrays`](https://eslint.org/docs/rules/no-sparse-arrays)
     
     ```js
-    let fruits = ['apple',, 'orange'];       // ✗ avoid
+    let fruits = ['apple',, 'orange'];       // ✗ evitar
     ```
 
 * **No se deben usar Tabulaciones.**
@@ -1015,7 +1035,7 @@
     eslint: [`no-template-curly-in-string`](https://eslint.org/docs/rules/no-template-curly-in-string)
     
     ```js
-    const message = 'Hello ${name}';   // ✗ avoid
+    const message = 'Hello ${name}';   // ✗ evitar
     const message = `Hello ${name}`;   // ✓ ok
     ```
 
@@ -1028,7 +1048,7 @@
     {
         constructor () 
         {
-            this.legs = 4;     // ✗ avoid
+            this.legs = 4;     // ✗ evitar
             super();
         }
     }
@@ -1039,7 +1059,7 @@
     eslint: [`no-throw-literal`](https://eslint.org/docs/rules/no-throw-literal)
     
     ```js
-    throw 'error';               // ✗ avoid
+    throw 'error';               // ✗ evitar
     throw new Error('error');    // ✓ ok
     ```
 
@@ -1052,7 +1072,7 @@
     eslint: [`no-undef-init`](https://eslint.org/docs/rules/no-undef-init)
     
     ```js
-    let name = undefined;    // ✗ avoid
+    let name = undefined;    // ✗ evitar
     
     let name;
     name = 'value';          // ✓ ok
@@ -1063,7 +1083,7 @@
     eslint: [`no-unmodified-loop-condition`](https://eslint.org/docs/rules/no-unmodified-loop-condition)
     
     ```js
-    for (let i = 0; i < items.length; j++) {...}    // ✗ avoid
+    for (let i = 0; i < items.length; j++) {...}    // ✗ evitar
     for (let i = 0; i < items.length; i++) {...}    // ✓ ok
     ```
 
@@ -1072,7 +1092,7 @@
     eslint: [`no-unneeded-ternary`](https://eslint.org/docs/rules/no-unneeded-ternary)
     
     ```js
-    let score = val ? val : 0;     // ✗ avoid
+    let score = val ? val : 0;     // ✗ evitar
     let score = val || 0;          // ✓ ok
     ```
 
@@ -1084,7 +1104,7 @@
     function doSomething () 
     {
         return true;
-        console.log('never called');     // ✗ avoid
+        console.log('never called');     // ✗ evitar
     }
     ```
 
@@ -1103,7 +1123,7 @@
     } 
     finally 
     {
-        return 42;     // ✗ avoid
+        return 42;     // ✗ evitar
     }
     ```
 
@@ -1112,7 +1132,7 @@
     eslint: [`no-unsafe-negation`](https://eslint.org/docs/rules/no-unsafe-negation)
     
     ```js
-    if (!key in obj) {}       // ✗ avoid
+    if (!key in obj) {}       // ✗ evitar
     ```
 
 * **Evitar uso inncesario de `.call()` y `.apply()`.**
@@ -1120,7 +1140,7 @@
     eslint: [`no-useless-call`](https://eslint.org/docs/rules/no-useless-call)
     
     ```js
-    sum.call(null, 1, 2, 3);   // ✗ avoid
+    sum.call(null, 1, 2, 3);   // ✗ evitar
     ```
 
 * **Evitar usar constructores innecesarios.**
@@ -1128,7 +1148,7 @@
     eslint: [`no-useless-computed-key`](https://eslint.org/docs/rules/no-useless-computed-key)
     
     ```js
-    const user = { ['name']: 'John Doe' };   // ✗ avoid
+    const user = { ['name']: 'John Doe' };   // ✗ evitar
     const user = { name: 'John Doe' };       // ✓ ok
     ```
 
@@ -1137,7 +1157,7 @@
     eslint: [`no-useless-escape`](https://eslint.org/docs/rules/no-useless-escape)
     
     ```js
-    let message = 'Hell\o';  // ✗ avoid
+    let message = 'Hell\o';  // ✗ evitar
     ```
 
 * **Renombrar import, export o destructuración con el mismo nombre  no esta permitido**
@@ -1145,7 +1165,7 @@
     eslint: [`no-useless-rename`](https://eslint.org/docs/rules/no-useless-rename)
     
     ```js
-    import { config as config } from './config';     // ✗ avoid
+    import { config as config } from './config';     // ✗ evitar
     import { config } from './config';               // ✓ ok
     ```
 
@@ -1154,7 +1174,7 @@
     eslint: [`no-whitespace-before-property`](https://eslint.org/docs/rules/no-whitespace-before-property)
     
     ```js
-    user .name      // ✗ avoid
+    user .name      // ✗ evitar
     user.name       // ✓ ok
     ```
 
@@ -1163,7 +1183,7 @@
     eslint: [`no-with`](https://eslint.org/docs/rules/no-with)
     
     ```js
-    with (val) {...}    // ✗ avoid
+    with (val) {...}    // ✗ evitar
     ```
 
 * **Mantener consistencia de nuevas lineas entre las propiedades de un objecto .**
@@ -1173,7 +1193,7 @@
     ```js
     const user = {
        name: 'Jane Doe', age: 30,
-       username: 'jdoe86'            // ✗ avoid
+       username: 'jdoe86'            // ✗ evitar
     };
     
     const user = { name: 'Jane Doe', age: 30, username: 'jdoe86' };    // ✓ ok
@@ -1192,7 +1212,7 @@
     ```js
     if (user) 
     {
-                               // ✗ avoid
+                               // ✗ evitar
        const name = getName();
     
     }
@@ -1208,7 +1228,7 @@
     eslint: [`rest-spread-spacing`](https://eslint.org/docs/rules/rest-spread-spacing)
     
     ```js
-    fn(... args);    // ✗ avoid
+    fn(... args);    // ✗ evitar
     fn(...args);     // ✓ ok
     ```
 
@@ -1217,7 +1237,7 @@
     eslint: [`semi-spacing`](https://eslint.org/docs/rules/semi-spacing)
     
     ```js
-    for (let i = 0 ;i < items.length ;i++) {...}    // ✗ avoid
+    for (let i = 0 ;i < items.length ;i++) {...}    // ✗ evitar
     for (let i = 0; i < items.length; i++) {...}    // ✓ ok
     ```
 
@@ -1226,7 +1246,7 @@
     eslint: [`space-before-blocks`](https://eslint.org/docs/rules/space-before-blocks)
     
     ```js
-    if (admin){...}     // ✗ avoid
+    if (admin){...}     // ✗ evitar
     if (admin) {...}    // ✓ ok
     ```
 
@@ -1235,7 +1255,7 @@
     eslint: [`space-in-parens`](https://eslint.org/docs/rules/space-in-parens)
     
     ```js
-    getName( name );     // ✗ avoid
+    getName( name );     // ✗ evitar
     getName(name);       // ✓ ok
     ```
 
@@ -1244,7 +1264,7 @@
     eslint: [`space-unary-ops`](https://eslint.org/docs/rules/space-unary-ops)
     
     ```js
-    typeof!admin;        // ✗ avoid
+    typeof!admin;        // ✗ evitar
     typeof !admin;        // ✓ ok
     ```
 
@@ -1253,10 +1273,10 @@
     eslint: [`spaced-comment`](https://eslint.org/docs/rules/spaced-comment)
     
     ```js
-    //comment           // ✗ avoid
+    //comment           // ✗ evitar
     // comment          // ✓ ok
     
-    /*comment*/         // ✗ avoid
+    /*comment*/         // ✗ evitar
     /* comment */       // ✓ ok
     ```
 
@@ -1265,7 +1285,7 @@
     eslint: [`template-curly-spacing`](https://eslint.org/docs/rules/template-curly-spacing)
     
     ```js
-    const message = `Hello, ${ name }`;    // ✗ avoid
+    const message = `Hello, ${ name }`;    // ✗ evitar
     const message = `Hello, ${name}`;      // ✓ ok
     ```
 
@@ -1274,7 +1294,7 @@
     eslint: [`use-isnan`](https://eslint.org/docs/rules/use-isnan)
     
     ```js
-    if (price === NaN) { }      // ✗ avoid
+    if (price === NaN) { }      // ✗ evitar
     if (isNaN(price)) { }       // ✓ ok
     ```
 
@@ -1283,7 +1303,7 @@
     eslint: [`valid-typeof`](https://eslint.org/docs/rules/valid-typeof)
     
     ```js
-    typeof name === 'undefimed';     // ✗ avoid
+    typeof name === 'undefimed';     // ✗ evitar
     typeof name === 'undefined';     // ✓ ok
     ```
 
@@ -1292,7 +1312,7 @@
     eslint: [`wrap-iife`](https://eslint.org/docs/rules/wrap-iife)
     
     ```js
-    const getName = function () { }();     // ✗ avoid
+    const getName = function () { }();     // ✗ evitar
     
     const getName = (function () { }());   // ✓ ok
     const getName = (function () { })();   // ✓ ok
@@ -1303,7 +1323,7 @@
     eslint: [`yield-star-spacing`](https://eslint.org/docs/rules/yield-star-spacing)
     
     ```js
-    yield* increment();    // ✗ avoid
+    yield* increment();    // ✗ evitar
     yield * increment();   // ✓ ok
     ```
 
@@ -1312,7 +1332,7 @@
     eslint: [`yoda`](https://eslint.org/docs/rules/yoda)
     
     ```js
-    if (42 === age) { }    // ✗ avoid
+    if (42 === age) { }    // ✗ evitar
     if (age === 42) { }    // ✓ ok
     ```
 
