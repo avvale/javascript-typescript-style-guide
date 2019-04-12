@@ -5,7 +5,7 @@
 </a>
 <br><br>
 
-**Esta guía de estilo tiene como objetivo dar una pauta para desarrollar código, fácil de enteder, limpio y legible.**
+**Esta guía de estilo tiene como objetivo dar una pauta para desarrollar código, fácil de entender, limpio y legible.**
 
 ## Reglas
 
