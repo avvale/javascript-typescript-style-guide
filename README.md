@@ -1,6 +1,11 @@
-# Techedge JavaScript Style Guide
+# Techedge JavaScript & Typescript Style Guide
 
-[![Javascript Style guide](https://cdn2.hubspot.net/hubfs/500261/assets/img/techedge.svg)](https://www.techedgegroup.com)
+<a href="https://www.techedgegroup.com" target="blank">
+    <img src="https://cdn2.hubspot.net/hubfs/500261/assets/img/techedge.svg" width="300">
+</a>
+<br><br>
+
+**Esta guía de estilo tiene como objetivo dar una pauta para desarrollar código, fácil de enteder, limpio y legible.**
 
 ## Reglas
 
@@ -1321,109 +1326,3 @@
   window.alert('hi');  // ✓ ok
   window.alert('hi')   // ✗ evitar
   ```
-
-* Nunca empezar una linea con `(`, `[`, o `` ` ``. Este es el único problema cuando se omiten los puntos y comas, y `standard` te protege de problemas potenciales
-
-  eslint: [`no-unexpected-multiline`](https://eslint.org/docs/rules/no-unexpected-multiline)
-
-  ```js
-  // ✓ ok
-  ;(function () {
-    window.alert('ok')
-  }())
-
-  // ✗ evitar
-  (function () {
-    window.alert('ok')
-  }())
-  ```
-
-  ```js
-  // ✓ ok
-  ;[1, 2, 3].forEach(bar)
-
-  // ✗ evitar
-  [1, 2, 3].forEach(bar)
-  ```
-
-  ```js
-  // ✓ ok
-  ;`hello`.indexOf('o')
-
-  // ✗ evitar
-  `hello`.indexOf('o')
-  ```
-
-  Nota: si te encuentras a menudo escribiendo código de esta manera,
-  quizás estás tratando de ser muy listo.
-
-  esta taquigrafía es rechazada, en favor a expresiones claras y legibles, cuando sea posible.
-
-  En vez de esto:
-
-  ```js
-  ;[1, 2, 3].forEach(bar)
-  ```
-
-  Se prefiere esto:
-
-  ```js
-  var nums = [1, 2, 3]
-  nums.forEach(bar)
-  ```
-
-
-## Lectura de ayuda con referencia hacia los puntos y comas
-
-- [An Open Letter to JavaScript Leaders Regarding Semicolons][1]
-- [JavaScript Semicolon Insertion – Everything you need to know][2]
-
-##### También un video:
-
-- [Are Semicolons Necessary in JavaScript? - YouTube][3]
-
-Los minificadores de código populares hoy en día están basados en AST
-(Árbol abstracto de sintaxis), de manera que pueden gestionar JavaScript
-sin puntos y comas sin problemas (puntos y comas no son requeridos en JavaScript).
-
-##### Extrácto de *["An Open Letter to JavaScript Leaders Regarding Semicolons"][1]*:
-
-[Depender de ASI (Inserción automática de puntos y comas)] es bastante seguro, y perfectamente válido que cualquier navegador web entiende, Compilador Closure, yuicompressor, packer y jsmin todos pueden perfectamente minificarlo. No existe impacto en el performance.
-
-Lamento que, en vez de educarlos, sus líderes en este lenguaje les han dado mentiras y miedos. Que sinverguenza. Yo te recomiendo aprender como las declaraciones realmente terminan en JavaScript (y en cuales casos no terminan), de esta manera tu puedes escribir código que encuentres hermoso.
-
-En general, `\n` termina una declaración a menos que
-La declaración tiene sin cerrar un paréntesis, array literal, o objeto literal o termina de una manera no válida (por instancia, terminar con `.` o `,`)
-La línea es `--` o `++` (en este caso esto decrementa/incrementa el proximo token)
-Es un `for()`, `while()`, `do`, `if()`, o `else`, no exista una llave `{`
-La próxima línea empieza con `[`, `(`, `+`, `*`, `/`, `-`, `,`, `.` o algún operador binario que solo se encuentra entre dos tokens en un sola expresión
-
-El primero es bastante obvio. Incluso JSLint no tiene problemas con caracteres `\n` en JSON y constructores entre paréntesis, y con declaraciones `var` que lapsan múltiples líneas terminando con `,`.
-
-El segundo es super raro. Yo nunca he visto un caso (fuera de este tipo de conversaciones) donde quisieras escribir `i\n++\nj`, pero, de hecho eso es analizado como `i; ++j;`y  no `j++; j`.
-
-El tercero es bien entendido, es generalmente despreciado. `if (x)\ny()` es equivalente a `if (x) { y() }`. El constructor no termina hasta que alcanza un bloque o una declaración.
-
-`;` es una declaración JavaScript válida, entonces `if(x);` es el equivalente a `if(x){}` o “Sí x, hacer nada” Esto es más comúnmente aplicado a bucles donde el bucle también chequea si la función actualiza, No es usual, pero existe.
-
-El cuarto es generalmente el caso inducido “Oh no, necesitas puntos y comas”. Pero pasa que es bastante simple darle el prefijo a esas linas con puntos y comas, si no quieres que sean la continuacion de la linea previa. Por ejemplo, en vez de esto:
-
-```js
-foo();
-[1,2,3].forEach(bar);
-```
-
-podrias hacer esto:
-
-```js
-foo()
-;[1,2,3].forEach(bar)
-```
-
-La ventaja es que los prefijos son fáciles de notar, una vez te acostumbras a ver líneas que no empiecen con `(` o `[` sin puntos y comas.
-
-*Fin the la cita de "An Open Letter to JavaScript Leaders Regarding Semicolons".*
-
-[1]: http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding
-[2]: http://inimino.org/~inimino/blog/javascript_semicolons
-[3]: https://www.youtube.com/watch?v=gsfbh17Ax9I
