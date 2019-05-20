@@ -124,7 +124,9 @@
 
 * **Mantener declaracion else** en una linea distinta que sus llaves.
 
-    eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style) *stroustrup*
+    eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style)
+    
+    value: 'brace-style': ['error', 'stroustrup'],
 
     ```js
     // ✓ ok
@@ -1165,15 +1167,17 @@
 
     eslint: [`padded-blocks`](https://eslint.org/docs/rules/padded-blocks)
     
+    value: 'padded-blocks': ['error', 'always']
+    
     ```js
     if (user) {
-                               // ✗ evitar
+         const name = getName();      // ✗ evitar
+        }
+      
+    if (user) {
+                                      // ✓ ok
        const name = getName();
     
-    }
-    
-    if (user) {
-     const name = getName();    // ✓ ok
     }
     ```
 
