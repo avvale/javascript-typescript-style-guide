@@ -12,14 +12,18 @@
 * **Usar nombres en inglés** para clases, métodos, funciones y variables.
 
     ```js
-    class Cliente {       // ✗ evitar
-        getTelefono() {   // ✗ evitar 
+    class Cliente         // ✗ evitar 
+    {
+        getTelefono()     // ✗ evitar 
+        { 
             // ... 
         }
     }
   
-    class Customer {   // ✓ ok
-        getPhone() {   // ✓ ok 
+    class Customer 
+    {                     // ✓ ok
+        getPhone() 
+        {                 // ✓ ok 
             // ... 
         }
     }
@@ -30,7 +34,8 @@
     eslint: [`indent`](https://eslint.org/docs/rules/indent)
 
     ```js
-    function hello (name) {
+    function hello (name) 
+    {
         console.log('hi', name);
     }
     ```
@@ -49,7 +54,8 @@
     eslint: [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars)
 
     ```js
-    function myFunction () {
+    function myFunction () 
+    {
         var result = something();   // ✗ evitar
     }
     ```
@@ -126,26 +132,31 @@
 
     eslint: [`brace-style`](https://eslint.org/docs/rules/brace-style)
     
-    value: 'brace-style': ['error', 'stroustrup'],
+    value: 'brace-style': ['error', 'stroustrup', { "allowSingleLine": true }],
 
     ```js
     // ✓ ok
-    if (condition) {
-    // ...
-    } 
-    else {
-    // ...
-    }
-    ```
-
-    ```js
-    // ✗ evitar
     if (condition) 
     {
     // ...
     }
     else 
     {
+    // ...
+    }
+    ```
+    
+    ```js
+    // ✓ ok
+    if (condition) { // ... }
+    ```
+
+    ```js
+    // ✗ evitar
+    if (condition) {
+    // ...
+    } 
+    else {
     // ...
     }
     ```
@@ -170,7 +181,8 @@
 
     ```js
     // ✓ ok
-    if (options.quiet !== true) {
+    if (options.quiet !== true) 
+    {
         console.log('done');
     }
     ```
@@ -268,7 +280,8 @@
     
     ```js
     // ✓ ok
-    while ((m = text.match(expr))) {
+    while ((m = text.match(expr))) 
+    {
     // ...
     }
     
@@ -409,14 +422,18 @@
     eslint: [`constructor-super`](https://eslint.org/docs/rules/constructor-super)
     
     ```js
-    class Dog {
-        constructor () {
+    class Dog 
+    {
+        constructor () 
+        {
             super();   // ✗ evitar
         }
     }
     
-    class Dog extends Mammal {
-        constructor () {
+    class Dog extends Mammal 
+    {
+        constructor () 
+        {
             super();   // ✓ ok
         }
     }
@@ -436,13 +453,15 @@
     eslint: [`no-caller`](https://eslint.org/docs/rules/no-caller)
 
     ```js
-    function foo (n) {
+    function foo (n) 
+    {
         if (n <= 0) return;
     
         arguments.caller(n - 1);   // ✗ evitar
     }
     
-    function foo (n) {
+    function foo (n) 
+    {
         if (n <= 0) return;
     
         foo(n - 1);
@@ -472,15 +491,18 @@
     eslint: [`no-constant-condition`](https://eslint.org/docs/rules/no-constant-condition)
     
     ```js
-    if (false) {      // ✗ evitar 
+    if (false)        // ✗ evitar 
+    { 
     // ...
     }
     
-    if (x === 0) {    // ✓ ok
+    if (x === 0)      // ✓ ok 
+    {
     // ...
     }
     
-    while (true) {    // ✓ ok
+    while (true)      // ✓ ok 
+    {
     // ...
     }
     ```
@@ -499,7 +521,8 @@
     eslint: [`no-debugger`](https://eslint.org/docs/rules/no-debugger)
 
     ```js
-    function sum (a, b) {
+    function sum (a, b) 
+    {
         debugger;      // ✗ evitar
         return a + b;
     }
@@ -554,7 +577,8 @@
     eslint: [`no-duplicate-case`](https://eslint.org/docs/rules/no-duplicate-case)
     
     ```js
-    switch (id) {
+    switch (id) 
+    {
         case 1:
             // ...
         case 1:     // ✗ evitar
@@ -604,17 +628,21 @@
     eslint: [`no-ex-assign`](https://eslint.org/docs/rules/no-ex-assign)
     
     ```js
-    try {
+    try 
+    {
         // ...
     } 
-    catch (e) {
+    catch (e) 
+    {
         e = 'new value';            // ✗ evitar
     }
     
-    try {
+    try 
+    {
     // ...
     } 
-    catch (e) {
+    catch (e) 
+    {
         const newVal = 'new value';  // ✓ ok
     }
     ```
@@ -647,12 +675,14 @@
 
     ```js
     const result = true;
-    if (!!result) {   // ✗ evitar
+    if (!!result)     // ✗ evitar 
+    {
         // ...
     }
     
     const result = true;
-    if (result) {     // ✓ ok
+    if (result)       // ✓ ok 
+    {
         // ...
     }
     ```
@@ -671,14 +701,16 @@
     eslint: [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough)
     
     ```js
-    switch (filter) {
+    switch (filter) 
+    {
         case 1:
             doSomething();    // ✗ evitar
         case 2:
             doSomethingElse();
     }
     
-    switch (filter) {
+    switch (filter) 
+    {
         case 1:
             doSomething();
             break;           // ✓ ok
@@ -727,7 +759,8 @@
     eslint: [`no-inner-declarations`](https://eslint.org/docs/rules/no-inner-declarations)
     
     ```js
-    if (authenticated) {
+    if (authenticated) 
+    {
         function setAuthUser () {}    // ✗ evitar
     }
     ```
@@ -763,8 +796,10 @@
     
     ```js
     var score = 100;
-    function game () {
-        score: while (true) { // ✗ evitar
+    function game () 
+    {
+        score: while (true)       // ✗ evitar 
+        {
             score -= 10;
             if (score > 0) continue score;
             break;
@@ -941,11 +976,13 @@
     eslint: [`no-return-assign`](https://eslint.org/docs/rules/no-return-assign)
     
     ```js
-    function sum (a, b) {
+    function sum (a, b) 
+    {
         return result = a + b;     // ✗ evitar
     }
     
-    function sum (a, b) {
+    function sum (a, b) 
+    {
         return (result = a + b);   // ✓ ok
     }
     ```
@@ -1008,8 +1045,10 @@
     eslint: [`no-this-before-super`](https://eslint.org/docs/rules/no-this-before-super)
     
     ```js
-    class Dog extends Animal {
-        constructor () {
+    class Dog extends Animal 
+    {
+        constructor () 
+        {
             this.legs = 4;     // ✗ evitar
             super();
         }
@@ -1063,7 +1102,8 @@
     eslint: [`no-unreachable`](https://eslint.org/docs/rules/no-unreachable)
     
     ```js
-    function doSomething () {
+    function doSomething ()
+    {
         return true;
         console.log('never called');     // ✗ evitar
     }
@@ -1074,13 +1114,16 @@
     eslint: [`no-unsafe-finally`](https://eslint.org/docs/rules/no-unsafe-finally)
     
     ```js
-    try {
+    try 
+    {
         // ...
     } 
-    catch (e) {
+    catch (e) 
+     {
         // ...
     } 
-    finally {
+    finally 
+    {
         return 42;     // ✗ evitar
     }
     ```
