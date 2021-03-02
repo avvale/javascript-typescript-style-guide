@@ -1347,3 +1347,20 @@
   window.alert('hi');  // ✓ ok
   window.alert('hi')   // ✗ evitar
   ```
+  
+## Puntos y comas para la definición de interfaces
+
+* Definir las propiedades de interfaces terminadas en punto y coma.
+
+  ```js
+  export interface MyInterface  // ✓ ok
+  {
+      id: string;
+      name: string;
+  }
+  export interface MyInterface   // ✗ evitar
+  {
+      id: string,
+      name: string,
+  }
+  ```
